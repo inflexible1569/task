@@ -1,0 +1,62 @@
+.filter {
+    background: #f5f5f550;
+    padding: .65rem;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.button {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    width: fit-content;
+    border-radius: 3.25rem;
+    cursor: pointer;
+    transition: .15s ease-in-out;
+    user-select: none;
+}
+
+.button:hover {
+    background: #f5f5f525;
+}
+
+.button > img {
+    width: 2.25rem;
+}
+
+.marks {
+    margin-bottom: 25px;
+}
+
+.inputFields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 5fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.inputField {
+    background: #fffffff5;
+    outline: none;
+    border: none;
+    padding: .5rem;
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+.smallButton {
+    cursor: pointer;
+    background: #40404040;
+    width: fit-content;
+    padding: .25rem .5rem;
+    user-select: none;
+}
+
+.smallButton:hover {
+    background: #40404060;
+}

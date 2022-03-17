@@ -1,0 +1,40 @@
+.main {
+    padding-top: 2.25rem;
+    width: max(320px, min(95%, 1220px));
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.button {
+    border: .05rem solid #ffffff;
+    width: fit-content;
+    padding: .35em .65em;
+    font-size: 1.35rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    transition: .125s ease-in-out;
+    user-select: none;
+}
+
+.button:hover {
+    border-color: #f5f5f5;
+    background: #f5f5f5;
+    color: #404040;
+}
+
+.button > img {
+    transition: .125s ease-in-out;
+}
+
+.button:hover > img {
+    filter: invert(75%);
+}
