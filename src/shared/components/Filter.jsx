@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from '../styles/Filter.module.css'
 
@@ -16,7 +16,7 @@ const Filter = ({ index, values, removeFilter, rememberLabels }) => {
     const addLabel = () => {
         if (title && value) {
             setLabels([...labels, { index: labelIndex, title, value }])
-            setLabelIndex(labelIndex + 1)
+            setLabelIndex(labelIndex + 1) 
             setTitle('')
             setValue('')
         }

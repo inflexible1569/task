@@ -12,8 +12,6 @@ const Main = () => {
     localStorage.setItem('filters', JSON.stringify(filters))
     localStorage.setItem('index', JSON.stringify(index))
 
-    useEffect(() => console.log(localStorage))
-
     const addFilter = () => {
         setFilters([...filters, { index, labels: [] }])
         setIndex(index + 1)
@@ -43,12 +41,12 @@ const Main = () => {
                 <div className={styles.button} onClick={() => removeAll()}>Remove all</div>
             </div>
             {
-                filters.map((filter, index) => {
+                filters.map((filter) => {
                     return (
                         <Filter
                             key={filter.index}
                             index={filter.index}
-                            values={filter.labels && []}
+                            values={filter.labels}
                             removeFilter={removeFilter}
                             rememberLabels={rememberLabels}
                         />
