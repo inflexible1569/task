@@ -1,12 +1,21 @@
 .filter {
     background: #f5f5f550;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
     padding: .65rem;
 }
 
 .top {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    border-bottom: solid 1px #EEE;
+    padding-bottom: .65rem;
+}
+
+.top > span {
+    font-size: 1.35rem;
+    display: block;
 }
 
 .button {
@@ -26,18 +35,39 @@
 }
 
 .button > img {
-    width: 2.25rem;
+    width: 1.25rem;
 }
 
-.marks {
-    margin-bottom: 25px;
+.labels {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+}
+
+.label {
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+}
+
+.label > p {
+    word-break: break-all;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.labelHeading {
+    font-size: 1.25rem;
+    font-weight: 500;
+    width: 4.25rem;
+    display: block;
 }
 
 .inputFields {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(225px, 5fr));
     gap: 15px;
-    margin-bottom: 25px;
 }
 
 .inputField {
@@ -49,11 +79,16 @@
     font-size: 1.25rem;
 }
 
+.buttons {
+    display: flex;
+    gap: .5rem;
+}
+
 .smallButton {
     cursor: pointer;
     background: #40404040;
     width: fit-content;
-    padding: .25rem .5rem;
+    padding: .55rem 1.35rem;
     user-select: none;
 }
 

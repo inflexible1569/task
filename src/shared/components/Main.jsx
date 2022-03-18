@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Filter from './Filter'
 
@@ -6,10 +6,34 @@ import styles from '../styles/Main.module.css'
 
 const Main = () => {
 
-    const [filters, setFilters] = useState([])
+    const [filters, setFilters] = useState(JSON.parse(localStorage.getItem('filters')) || [])
+    const [index, setIndex] = useState(JSON.parse(localStorage.getItem('index')) || 0)
 
-    const addFilter = () => setFilters([...filters, {}])
-    const removeAll = () => setFilters([])
+    localStorage.setItem('filters', JSON.stringify(filters))
+    localStorage.setItem('index', JSON.stringify(index))
+
+    useEffect(() => console.log(localStorage))
+
+    const addFilter = () => {
+        setFilters([...filters, { index, labels: [] }])
+        setIndex(index + 1)
+    }
+
+    const rememberLabels = (index, labels) => {
+        const warp = [...filters]
+        warp.map((filter) => {
+            if (filter.index === index) {
+                filter.labels = labels
+            }
+        })
+        setFilters(warp)
+    }
+
+    const removeAll = () => {
+        setFilters([])
+        setIndex(0)
+    }
+
     const removeFilter = (index) => setFilters(filters.filter((filter) => filter.index !== index))
 
     return (
@@ -19,7 +43,17 @@ const Main = () => {
                 <div className={styles.button} onClick={() => removeAll()}>Remove all</div>
             </div>
             {
-                filters.map((filter, index) => <Filter key={index} index={index} removeFilter={removeFilter} />)
+                filters.map((filter, index) => {
+                    return (
+                        <Filter
+                            key={filter.index}
+                            index={filter.index}
+                            values={filter.labels && []}
+                            removeFilter={removeFilter}
+                            rememberLabels={rememberLabels}
+                        />
+                    )
+                })
             }
         </main>
     )
