@@ -17,7 +17,7 @@ const Main = () => {
         setIndex(index + 1)
     }
 
-    const rememberLabels = (index, labels) => {
+    const rememberLabels = (index, labels, quantity) => {
         const warp = [...filters]
         warp.map((filter) => {
             if (filter.index === index) {
@@ -30,6 +30,12 @@ const Main = () => {
     const removeAll = () => {
         setFilters([])
         setIndex(0)
+    }
+
+    const removeLabel = (index, labelIndex) => {
+        let warp = [...filters]
+        warp.forEach((filter) => filter.labels = filter.labels.filter((label) => label.index !== labelIndex))
+        setFilters([...warp])
     }
 
     const removeFilter = (index) => setFilters(filters.filter((filter) => filter.index !== index))
@@ -48,6 +54,7 @@ const Main = () => {
                             index={filter.index}
                             values={filter.labels}
                             removeFilter={removeFilter}
+                            removeLabel={removeLabel}
                             rememberLabels={rememberLabels}
                         />
                     )
