@@ -83,7 +83,7 @@
     cursor: pointer;
     background: #40404040;
     width: fit-content;
-    padding: .55rem 1.35rem;
+    padding: .55rem .95rem;
     user-select: none;
 }
 
